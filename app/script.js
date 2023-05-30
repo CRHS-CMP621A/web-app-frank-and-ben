@@ -9,8 +9,8 @@ const KEY = `b725d7c3f1302cf77740c3198f72ff35`;
 
 // Usernames
 // let USER1 = `Superfrancis123`;
-const USER1 = document.querySelector('.username__input__self');
-const USER2 = document.querySelector('.username__input__friend');
+const USER1 = `Superfrancis123`;
+const USER2 = `Extixc`;
 
 //// USER 1 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
