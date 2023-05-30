@@ -24,7 +24,7 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=
   console.log("Fetched Data:", U1_TopArtists)
 })
 
-username__form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function(e) {
   e.preventDefault()
   
   console.log("Stored data:", U1_TopArtists)
