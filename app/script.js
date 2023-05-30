@@ -15,6 +15,7 @@ const USER2 = `Extixc`;
 // Calls data for the first user from the Last.fm API and stores it on the site
 
 let U1_TopArtists;
+let U1_TopAlbums;
 let U1_TopTracks;
 
 function U1_getData() {
