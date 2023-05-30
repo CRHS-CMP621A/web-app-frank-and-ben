@@ -50,6 +50,8 @@ U1_getData()
 document.querySelector(".button").addEventListener("click", function(e) {
   e.preventDefault()
   
-  console.log("Stored data:", U1_TopArtists)
+  console.log("Artists:", U1_TopArtists)
+  console.log("Albums:", U1_TopAlbums)
+  console.log("Tracks:", U1_TopTracks)
 
   });
