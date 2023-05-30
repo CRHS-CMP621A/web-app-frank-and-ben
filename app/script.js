@@ -24,6 +24,9 @@ let U1_UserInfo;
 
 // Top Artists
 
+form.addEventListener('submit', function (e) {
+  e.preventDefault 
+
 fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
@@ -126,5 +129,4 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER
 // Specifically for leaderboards, gathers locally stored data and calculates it according to what we want to display in the leaderboards.
 
 // Total Scrobble Difference
-
-console.log(U1_TopArtists)
+})
