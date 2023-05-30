@@ -27,6 +27,17 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=$
 
   })
 
+// Top Genres (Tags)
+
+fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTags&user=${USER1}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    const U1topGenres = data.toptags.tag;
+
+    console.log(U1topGenres)
+
+  })
+
 // Recent Stats //
 
 // Recent Tracks
@@ -38,3 +49,7 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&use
     console.log(U1recentTracks)
 
   })
+
+
+
+  
