@@ -36,6 +36,17 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=$
 
   })
 
+// Top Genres (Tags)
+
+fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTags&user=${USER1}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    const U1topGenres = data.toptags.tag;
+
+    console.log(U1topGenres)
+
+  })
+
 // Recent Stats //
 
 // Recent Tracks
@@ -47,69 +58,3 @@ fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&use
     console.log(U1recentTracks)
 
   })
-
-// Overall Stats//
-
-// User Info
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U1userInfo = data.user;
-
-    console.log(U1userInfo)
-
-  })
-
-//// USER 2 DATA ////
-// Calls data for the second user from the Last.fm API and stores it on the site
-
-// Top Stats //
-
-// Top Artists 
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2topArtists = data.topartists.artist;
-
-    console.log(U2topArtists)
-
-  })
-
-// Top Tracks
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2topTracks = data.toptracks.track;
-
-    console.log(U2topTracks)
-
-  })
-
-// Recent Stats //
-
-// Recent Tracks
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2recentTracks = data.recenttracks.track;
-
-    console.log(U2recentTracks)
-
-  })
-
-// Overall Stats //
-
-// User Info
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2userInfo = data.user;
-
-    console.log(U2userInfo)
-
-  })
-
-//// LEADERBOARD CALCULATION ////
-// Specifically for leaderboards, gathers locally stored data and calculates it according to what we want to display in the leaderboards.
-
-// Total Scrobble Difference
