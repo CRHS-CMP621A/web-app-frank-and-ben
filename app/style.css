@@ -1,5 +1,9 @@
 .form {
     display:grid;
-    grid-template:repeat(2, 1fr)/repeat(10, 1fr);
+    grid-template-columns: 1fr 1fr;
 }
 
+.form__collumn {
+    display:flex;
+    align-items: center;
+}
