@@ -8,108 +8,183 @@ const KEY = `b725d7c3f1302cf77740c3198f72ff35`;
 // Variables //
 
 // Usernames
-let USER1 = `Superfrancis123`;
-let USER2 = `Exticx`;
+const USER1 = "Superfrancis123";
+const USER2 = "Exticx";
 
 //// USER 1 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
 
-// Top Stats //
+let U1_TopArtists;
+let U1_TopAlbums;
+let U1_TopTracks;
 
-// Top Artists 
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U1topArtists = data.topartists.artist;
+let U1_RecentArtists;
+let U1_RecentAlbums;
+let U1_RecentTracks;
 
-    console.log(U1topArtists)
+let U1_UserInfo;
 
-  })
+function U1_getData() {
 
-// Top Tracks
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U1topTracks = data.toptracks.track;
+  //// TOP STATS ////
 
-    console.log(U1topTracks)
+  // Top Artists
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_TopArtists = data.topartists.artist;
+      console.log("User 1 Top Artists:", U1_TopArtists)
+    })
 
-  })
+  // Top Albums
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_TopAlbums = data.topalbums.album;
+      console.log("User 1 Top Albums:", U1_TopAlbums)
+    })
 
-// Recent Stats //
+  // Top Tracks
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_TopTracks = data.toptracks.track;
+      console.log("User 1 Top Tracks:", U1_TopTracks)
+    })
 
-// Recent Tracks
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U1recentTracks = data.recenttracks.track;
+  //// RECENT STATS ////
+  
+  // Recent Artists
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&period=7day&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_RecentArtists = data.topartists.artist;
+      console.log("User 1 Recent Artists:", U1_RecentArtists)
+    })
 
-    console.log(U1recentTracks)
+  // Recent Albums
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER1}&api_key=${KEY}&period=7day&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_RecentAlbums = data.topalbums.album;
+      console.log("User 1 Top Albums:", U1_RecentAlbums)
+    })
 
-  })
+  // Recent Tracks
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_RecentTracks = data.recenttracks.track;
+      console.log("User 1 Recent Tracks:", U1_RecentTracks)
+    })
 
-// Overall Stats//
+  //// OVERALL STATS ////
 
-// User Info
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U1userInfo = data.user;
+  // User Info
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U1_UserInfo = data.user;
+      console.log("User 1 User Info:", U1_UserInfo)
+    })
 
-    console.log(U1userInfo)
-
-  })
+}
 
 //// USER 2 DATA ////
-// Calls data for the second user from the Last.fm API and stores it on the site
+// Calls data for the first user from the Last.fm API and stores it on the site
 
-// Top Stats //
+let U2_TopArtists;
+let U2_TopAlbums;
+let U2_TopTracks;
 
-// Top Artists 
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2topArtists = data.topartists.artist;
+let U2_RecentArtists;
+let U2_RecentAlbums;
+let U2_RecentTracks;
 
-    console.log(U2topArtists)
+let U2_UserInfo;
 
-  })
+function U2_getData() {
 
-// Top Tracks
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2topTracks = data.toptracks.track;
+  //// TOP STATS ////
 
-    console.log(U2topTracks)
+  // Top Artists
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_TopArtists = data.topartists.artist;
+      console.log("User 2 Top Artists:", U2_TopArtists)
+    })
 
-  })
+  // Top Albums
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_TopAlbums = data.topalbums.album;
+      console.log("User 2 Top Albums:", U2_TopAlbums)
+    })
 
-// Recent Stats //
+  // Top Tracks
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_TopTracks = data.toptracks.track;
+      console.log("User 2 Top Tracks:", U2_TopTracks)
+    })
 
-// Recent Tracks
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2recentTracks = data.recenttracks.track;
+  //// RECENT STATS ////
+  
+  // Recent Artists
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&period=7day&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_RecentArtists = data.topartists.artist;
+      console.log("User 2 Recent Artists:", U2_RecentArtists)
+    })
 
-    console.log(U2recentTracks)
+  // Recent Albums
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER2}&api_key=${KEY}&period=7day&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_RecentAlbums = data.topalbums.album;
+      console.log("User 2 Top Albums:", U2_RecentAlbums)
+    })
 
-  })
+  // Recent Tracks
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_RecentTracks = data.recenttracks.track;
+      console.log("User 2 Recent Tracks:", U2_RecentTracks)
+    })
 
-// Overall Stats //
+  //// OVERALL STATS ////
 
-// User Info
-fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
-  .then(response => response.json())
-  .then(data => {
-    const U2userInfo = data.user;
+  // User Info
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      U2_UserInfo = data.user;
+      console.log("User 2 User Info:", U2_UserInfo)
+    })
 
-    console.log(U2userInfo)
+}
 
-  })
+// Eventlistener for data fetching after pressing the submit button
+document.querySelector(".submitBtn").addEventListener("click", function(e) {
+  e.preventDefault()
+  
+  U1_getData()
+  U2_getData()  
 
-//// LEADERBOARD CALCULATION ////
-// Specifically for leaderboards, gathers locally stored data and calculates it according to what we want to display in the leaderboards.
+  });
 
-// Total Scrobble Difference
+document.querySelector(".resultsBtn").addEventListener("click", function(e) {
+  e.preventDefault()
+  
+  console.log("Artists:", U1_TopArtists)
+  console.log("Albums:", U1_TopAlbums)
+  console.log("Tracks:", U1_TopTracks)
+
+  console.log(U1_TopTracks[2].name + ";", U1_TopTracks[2].playcount, "scrobbles")
+
+  });
