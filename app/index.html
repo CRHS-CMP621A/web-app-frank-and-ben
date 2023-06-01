@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Lastboard</title>
     <link href="style.css" rel="stylesheet" type="text/css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
 
@@ -14,13 +14,13 @@
     <nav>
 
       <!-- image placeholder -->
-      <h1 class="Nav__img">lastboard</h1>
+      <img src="lastboard.png" class="nav__img" alt="lastboard's full logo" height=50px>
 
     </nav>
 
     <main>
 
-      <button class = "button" type="button">button</button>
+      
       <!-- Username Forms -->
       <form id = "form" class = "username__form">
         <div class = "form__collumn">
@@ -42,6 +42,18 @@
       <button class = "submitBtn" type="button">Submit</button>
       <button class = "resultsBtn" type="button">Show Results</button>
 
+
+        <div class="content hidden">
+          <div class="U1__grid">
+            <!-- <img src=U1_TopTracks[0].image class = "U1__T1 U1__T1img">
+            <p class="U1__T1 U1__T1name" >${U1_TopTracks[0].name}</p>
+            <p class="U1__T1 U1__T1scr" >${U1_TopTracks[0].playcount}</p> -->
+
+            <!-- I might have found something we can use to like throw things from js int existing html elements, if you were 
+            to hide like this stuff then have it inject at the same time that might work-->
+
+          </div>
+        </div>
 
       </form>
 

@@ -1,6 +1,8 @@
 //// IMPORTANT VARIABLES & CONSTANTS ////
 
 // Constants //
+const form = document.querySelector('.username__form');
+const hidden = document.querySelector('.hidden');
 
 // Last.fm API Key
 const KEY = `b725d7c3f1302cf77740c3198f72ff35`;
@@ -67,7 +69,7 @@ function U1_getData() {
     .then(response => response.json())
     .then(data => {
       U1_RecentAlbums = data.topalbums.album;
-      console.log("User 1 Top Albums:", U1_RecentAlbums)
+      console.log("User 1 Recent Albums:", U1_RecentAlbums)
     })
 
   // Recent Tracks
@@ -146,7 +148,7 @@ function U2_getData() {
     .then(response => response.json())
     .then(data => {
       U2_RecentAlbums = data.topalbums.album;
-      console.log("User 2 Top Albums:", U2_RecentAlbums)
+      console.log("User 2 Recent Albums:", U2_RecentAlbums)
     })
 
   // Recent Tracks
@@ -169,6 +171,85 @@ function U2_getData() {
 
 }
 
+//// USER DATA COMPARING ////
+
+function calculateData(){
+
+  //// SCROBBLE DIFFERENCES ////
+
+  // Total Scrobble Difference
+  if (U1_UserInfo.playcount > U2_UserInfo.playcount) {
+    totalScrobbleDifference = U1_UserInfo.playcount - U2_UserInfo.playcount
+  }
+
+  if (U2_UserInfo.playcount > U1_UserInfo.playcount) {
+    totalScrobbleDifference = U2_UserInfo.playcount - U1_UserInfo.playcount
+  }
+    
+  // Top Artist Scrobble Difference
+  if (U1_TopArtists[0].playcount > U2_TopArtists[0].playcount) {
+    topArtistScrobbleDifference = U1_TopArtists[0].playcount - U2_TopArtists[0].playcount
+  }
+
+  if (U2_TopArtists[0].playcount > U1_TopArtists[0].playcount) {
+    topArtistScrobbleDifference = U2_TopArtists[0].playcount - U1_TopArtists[0].playcount
+  }
+
+  // Top Album Scrobble Difference
+  if (U1_TopAlbums[0].playcount > U2_TopAlbums[0].playcount) {
+    topAlbumScrobbleDifference = U1_TopAlbums[0].playcount - U2_TopAlbums[0].playcount
+  }
+
+  if (U2_TopAlbums[0].playcount > U1_TopAlbums[0].playcount) {
+    topAlbumScrobbleDifference = U2_TopAlbums[0].playcount - U1_TopAlbums[0].playcount
+  }
+
+  // Top Track Scrobble Difference
+  if (U1_TopTracks[0].playcount > U2_TopTracks[0].playcount) {
+    topTrackScrobbleDifference = U1_TopTracks[0].playcount - U2_TopTracks[0].playcount
+  }
+
+  if (U2_TopTracks[0].playcount > U1_TopTracks[0].playcount) {
+    topTrackScrobbleDifference = U2_TopTracks[0].playcount - U1_TopTracks[0].playcount
+  }
+
+  // Logging
+  console.log(totalScrobbleDifference)
+  console.log(topArtistScrobbleDifference)
+  console.log(topAlbumScrobbleDifference)
+  console.log(topTrackScrobbleDifference)
+
+  //// SCROBBLE DIFFERENCES ////
+
+  
+
+  // I know we're gonna have a lot of just the array data side by side so there isn't a whole whole lot to calculate
+  
+  // I'm gonna try to just write down in the doc what all is gonna be side by side and comaring
+  // Yea that'd be kinda neat
+  // Here I might try to photoshop us a rough like idea of what we might want for our layuout if you want
+  // We could prolly use like <li> items for each of the 
+  // I do like that layout tho yea
+  // Also thought it might be cool to throw eachother's pfp up at the top somehow
+  // Alrighty
+  // We might have to inject it but I can look somethig up
+  // Feel like there should be a way to
+
+  // It seems that there's this like innerHTML thing we can use to write stuff into html elements directly
+  // document.getElementById("id").innerHTML = whatever;
+  // We can probably also do getElementByClass and those other ones as well
+
+  // Also if you're doing any more css stuff at any point I'll throw the hex code for the lastboard logo color in the doc
+
+  //  true, not much lol
+  // ill mess around with like html later so we can get at least our scrobble counts in some sort of grid
+}
+// album art | song name | | | scrobbles
+// yeah maybe
+// here ill throw something together real quick just as a test
+// can we refer to stuff from here to html or do we need to inject
+
+
 // Eventlistener for data fetching after pressing the submit button
 document.querySelector(".submitBtn").addEventListener("click", function(e) {
   e.preventDefault()
@@ -180,11 +261,24 @@ document.querySelector(".submitBtn").addEventListener("click", function(e) {
 
 document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   e.preventDefault()
-  
-  console.log("Artists:", U1_TopArtists)
-  console.log("Albums:", U1_TopAlbums)
-  console.log("Tracks:", U1_TopTracks)
+  hidden.classList.remove('hidden');
 
-  console.log(U1_TopTracks[2].name + ";", U1_TopTracks[2].playcount, "scrobbles")
+
 
   });
+
+// let html;
+// html = whatever
+// form.insertAdjacentHTML("afterend", html);
+// form can be whatever you wanna append to
+// This is a good start
+// might wanna commit too since class is almost over
+
+let html;
+    `<div class="U1__grid">  
+            
+            <p class="U1__T1 U1__T1name" >${U1_TopTracks[0].name}</p>
+            <p class="U1__T1 U1__T1scr" >${U1_TopTracks[0].playcount}</p>
+
+          </div>
+          {/* i tried LMAO */}nope`
