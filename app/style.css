@@ -1,3 +1,16 @@
+/*  NAV */
+nav {
+    display:flex
+}
+
+.Nav_img {
+    align-self: center;
+}
+
+
+
+/* MAIN */
+
 .username__form {
     display:grid;
     grid-template-columns: 1fr 1fr;
