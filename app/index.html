@@ -4,9 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Last FM Tool</title>
+    <title>Lastboard</title>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
 
   <body>
@@ -19,12 +20,13 @@
 
     <main>
 
-      //Username Forms
+      <button class = "button" type="button">button</button>
+      <!-- Username Forms -->
       <form id = "form" class = "username__form">
         <div class = "form__collumn">
         <label class = "username__label">Your username</label>
         <input 
-        class = "username__input"
+        class = "username__input__self"
         placeholder="@"
         />
         </div>
@@ -32,10 +34,13 @@
         <div class = "form__collumn">
           <label class = "username__label">Friend's username</label>
           <input 
-          class = "username__input"
+          class = "username__input__friend"
           placeholder="@"
           />
           </div>
+      
+      <button class = "submitBtn" type="button">Submit</button>
+      <button class = "resultsBtn" type="button">Show Results</button>
 
 
       </form>
