@@ -219,36 +219,10 @@ function calculateData(){
   console.log(topAlbumScrobbleDifference)
   console.log(topTrackScrobbleDifference)
 
+
   //// SCROBBLE DIFFERENCES ////
 
-  
-
-  // I know we're gonna have a lot of just the array data side by side so there isn't a whole whole lot to calculate
-  
-  // I'm gonna try to just write down in the doc what all is gonna be side by side and comaring
-  // Yea that'd be kinda neat
-  // Here I might try to photoshop us a rough like idea of what we might want for our layuout if you want
-  // We could prolly use like <li> items for each of the 
-  // I do like that layout tho yea
-  // Also thought it might be cool to throw eachother's pfp up at the top somehow
-  // Alrighty
-  // We might have to inject it but I can look somethig up
-  // Feel like there should be a way to
-
-  // It seems that there's this like innerHTML thing we can use to write stuff into html elements directly
-  // document.getElementById("id").innerHTML = whatever;
-  // We can probably also do getElementByClass and those other ones as well
-
-  // Also if you're doing any more css stuff at any point I'll throw the hex code for the lastboard logo color in the doc
-
-  //  true, not much lol
-  // ill mess around with like html later so we can get at least our scrobble counts in some sort of grid
 }
-// album art | song name | | | scrobbles
-// yeah maybe
-// here ill throw something together real quick just as a test
-// can we refer to stuff from here to html or do we need to inject
-
 
 // Eventlistener for data fetching after pressing the submit button
 document.querySelector(".submitBtn").addEventListener("click", function(e) {
