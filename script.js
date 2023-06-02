@@ -270,9 +270,6 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
 // let html;
 // html = whatever
 // form.insertAdjacentHTML("afterend", html);
-// form can be whatever you wanna append to
-// This is a good start
-// might wanna commit too since class is almost over aight
 
 let html;
     `<div class="U1__grid">  
@@ -280,5 +277,4 @@ let html;
             <p class="U1__T1 U1__T1name" >${U1_TopTracks[0].name}</p>
             <p class="U1__T1 U1__T1scr" >${U1_TopTracks[0].playcount}</p>
 
-          </div>
-          {/* i tried LMAO */}nope`commited gtg
+          </div>`
