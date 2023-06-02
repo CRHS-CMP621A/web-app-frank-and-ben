@@ -236,19 +236,25 @@ document.querySelector(".submitBtn").addEventListener("click", function(e) {
 document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   e.preventDefault()
   hidden.classList.remove('hidden');
+  
+  // User 1 Grid HTML //
+  U1_html = `
+  
+  <img src = ${U1_UserInfo.image[2]['#text']} size = 600px>
+  <h2>${U1_UserInfo.name}<h2>
+  
+  `
 
+  document.querySelector(".U1__header").innerHTML = U1_html
 
+  // User 2 Grid HTML //
+
+  U2_html = `
+  
+  <img src = ${U2_UserInfo.image[2]['#text']} size = 600px>
+  <h2>${U2_UserInfo.name}<h2>
+  
+  `
+  document.querySelector(".U2__header").innerHTML = U2_html
 
   });
-
-// let html;
-// html = whatever
-// form.insertAdjacentHTML("afterend", html);
-
-let html;
-    `<div class="U1__grid">  
-            
-            <p class="U1__T1 U1__T1name" >${U1_TopTracks[0].name}</p>
-            <p class="U1__T1 U1__T1scr" >${U1_TopTracks[0].playcount}</p>
-
-          </div>`

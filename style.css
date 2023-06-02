@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Barlow-Bold';
+    src: url(fonts/Barlow-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Barlow-Regular';
+    src: url(fonts/Barlow-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Barlow-Light';
+    src: url(fonts/Barlow-Light.ttf);
+}
+
 /*  NAV */
 nav {
     display: flex;
@@ -17,11 +32,10 @@ nav {
     
 }
 
-
-
 /* MAIN */
 
 .username__form {
+    font-family: "Barlow-Bold";
     display:grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -29,9 +43,53 @@ nav {
 .form__collumn {
     display:flex;
     align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
 
+.username__input__friend {
+    margin: 5px;
+}
+
+.username__input__self {
+    margin: 5px;
+}
 
 .hidden {
     display: none;
+}
+
+.info__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.U1__grid {
+    background-color: #dfdfdf;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: black
+  }
+  
+.U2__grid {
+    background-color: #adadad;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: black
+}
+
+.U1__header {
+    font-family: "Barlow-Bold";
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.U2__header {
+    font-family: "Barlow-Bold";
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
