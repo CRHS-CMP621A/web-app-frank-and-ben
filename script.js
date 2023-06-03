@@ -238,23 +238,188 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   hidden.classList.remove('hidden');
   
   // User 1 Grid HTML //
-  U1_html = `
+
+  // Header
+  U1_html_header = `
   
-  <img src = ${U1_UserInfo.image[2]['#text']} size = 600px>
+  <img src = ${U1_UserInfo.image[2]['#text']} class = U1__photo size = 600px>
   <h2>${U1_UserInfo.name}<h2>
   
   `
 
-  document.querySelector(".U1__header").innerHTML = U1_html
+  document.querySelector(".U1__header").innerHTML = U1_html_header
 
+  // Top Artists
+  U1_html_topArtists = `
+
+  <li>
+    <div class = listNumberOne>
+      <div class = listOnePosition>
+        <p>1</p>
+      </div>
+      <div class = listOneImage>
+        <img src = ${U1_TopArtists[0].image[2]['#text']}>
+      </div>
+      <div class = listOneStats>
+        <p class = oneName>${U1_TopArtists[0].name}</p>
+        <p class = oneScrobbles>${U1_TopArtists[0].playcount} Scrobbles</p>
+      </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>2</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopArtists[1].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopArtists[1].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopArtists[1].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>3</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopArtists[2].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopArtists[2].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopArtists[2].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>4</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopArtists[3].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopArtists[3].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopArtists[3].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>5</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopArtists[4].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopArtists[4].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopArtists[4].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+
+  `
+  document.querySelector(".U1__topArtists").innerHTML = U1_html_topArtists
   // User 2 Grid HTML //
 
-  U2_html = `
+  // Header
+  U2_html_header = `
   
-  <img src = ${U2_UserInfo.image[2]['#text']} size = 600px>
+  <img src = ${U2_UserInfo.image[2]['#text']} class = U2__photo size = 600px>
   <h2>${U2_UserInfo.name}<h2>
   
   `
-  document.querySelector(".U2__header").innerHTML = U2_html
+  document.querySelector(".U2__header").innerHTML = U2_html_header
+
+  // Top Artists
+  U2_html_topArtists = `
+  
+  <li>
+    <div class = listNumberOne>
+      <div class = listOnePosition>
+        <p>1</p>
+      </div>
+      <div class = listOneImage>
+        <img src = ${U2_TopArtists[0].image[2]['#text']}>
+      </div>
+      <div class = listOneStats>
+        <p class = oneName>${U2_TopArtists[0].name}</p>
+        <p class = oneScrobbles>${U2_TopArtists[0].playcount} Scrobbles</p>
+      </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>2</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopArtists[1].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopArtists[1].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopArtists[1].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>3</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopArtists[2].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopArtists[2].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopArtists[2].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>4</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopArtists[3].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopArtists[3].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopArtists[3].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>5</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopArtists[4].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopArtists[4].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopArtists[4].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  
+  `
+
+  document.querySelector(".U2__topArtists").innerHTML = U2_html_topArtists
 
   });
