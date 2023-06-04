@@ -1,5 +1,7 @@
 //// IMPORTANT VARIABLES & CONSTANTS ////
 
+let test = "test"
+
 // Constants //
 const form = document.querySelector('.username__form');
 const hidden = document.querySelector('.hidden');
@@ -980,6 +982,5 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
 
   `
   document.querySelector(".U2__topTracks").innerHTML = U2_html_topTracks
-
 
   });
