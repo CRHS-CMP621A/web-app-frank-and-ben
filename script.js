@@ -32,6 +32,12 @@ let U1_Artist3Img;
 let U1_Artist4Img;
 let U1_Artist5Img;
 
+let U1_Track1Img;
+let U1_Track2Img;
+let U1_Track3Img;
+let U1_Track4Img;
+let U1_Track5Img;
+
 function U1_getData() {
 
   //// TOP STATS ////
@@ -142,6 +148,50 @@ function U1_getTopArtistImg() {
 
 }
 
+function U1_getTopTrackImg() {
+
+  // #1 Track Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[0].name}&artist=${U1_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Track1Img = data.track;
+    console.log("User 1 Track Image Info:", U1_Track1Img)
+  })
+
+  // #2 Track Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[1].name}&artist=${U1_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Track2Img = data.track;
+    console.log("User 1 Track Image Info:", U1_Track2Img)
+  })
+
+  // #3 Track Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[2].name}&artist=${U1_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Track3Img = data.track;
+    console.log("User 1 Track Image Info:", U1_Track3Img)
+  })
+
+  // #4 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[3].name}&artist=${U1_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Track4Img = data.track;
+    console.log("User 1 Track Image Info:", U1_Track4Img)
+  })
+
+  // #5 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[4].name}&artist=${U1_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Track5Img = data.track;
+    console.log("User 1 Track Image Info:", U1_Track5Img)
+  })
+
+}
+
 //// USER 2 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
 
@@ -160,6 +210,12 @@ let U2_Artist2Img;
 let U2_Artist3Img;
 let U2_Artist4Img;
 let U2_Artist5Img;
+
+let U2_Track1Img;
+let U2_Track2Img;
+let U2_Track3Img;
+let U2_Track4Img;
+let U2_Track5Img;
 
 function U2_getData() {
 
@@ -271,6 +327,50 @@ function U2_getTopArtistImg() {
 
 }
 
+function U2_getTopTrackImg() {
+
+  // #1 Track Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[0].name}&artist=${U2_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Track1Img = data.track;
+    console.log("User 2 Track Image Info:", U2_Track1Img)
+  })
+
+  // #2 Track Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[1].name}&artist=${U2_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Track2Img = data.track;
+    console.log("User 2 Track Image Info:", U2_Track2Img)
+  })
+
+  // #3 Track Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[2].name}&artist=${U2_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Track3Img = data.track;
+    console.log("User 2 Track Image Info:", U2_Track3Img)
+  })
+
+  // #4 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[3].name}&artist=${U2_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Track4Img = data.track;
+    console.log("User 2 Track Image Info:", U2_Track4Img)
+  })
+
+  // #5 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[4].name}&artist=${U2_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Track5Img = data.track;
+    console.log("User 2 Track Image Info:", U2_Track5Img)
+  })
+
+}
+
 //// USER DATA COMPARING ////
 
 function calculateData(){
@@ -334,6 +434,9 @@ document.querySelector(".submitBtn").addEventListener("click", function(e) {
   document.querySelector(".resultsBtn").addEventListener("mouseover", function(e) {
     U1_getTopArtistImg()
     U2_getTopArtistImg()
+    U1_getTopTrackImg()
+    U2_getTopTrackImg()
+
   });
 
   });
@@ -525,6 +628,91 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   `
   document.querySelector(".U1__topAlbums").innerHTML = U1_html_topAlbums
 
+  // Top Tracks
+
+  U1_html_topTracks = `
+
+  <div class = "U1__topTracksTitle">
+    <h1>Top Tracks<h1>
+  </div>
+
+  <li>
+    <div class = listNumberOne>
+      <div class = listOnePosition>
+        <p>1</p>
+      </div>
+      <div class = listOneImage>
+        <img src = ${U1_Track1Img.album.image[2]['#text']}>
+      </div>
+      <div class = listOneStats>
+        <p class = oneName>${U1_TopTracks[0].name}</p>
+        <p class = oneScrobbles>${U1_TopTracks[0].playcount} Scrobbles</p>
+      </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>2</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_Track2Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopTracks[1].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopTracks[1].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>3</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_Track3Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopTracks[2].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopTracks[2].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>4</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_Track4Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopTracks[3].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopTracks[3].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>5</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_Track5Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopTracks[4].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopTracks[4].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  `
+  document.querySelector(".U1__topTracks").innerHTML = U1_html_topTracks
+
   // User 2 Grid HTML //
 
   // Header
@@ -707,5 +895,91 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
 
   `
   document.querySelector(".U2__topAlbums").innerHTML = U2_html_topAlbums
+
+  // Top Tracks
+
+  U2_html_topTracks = `
+
+  <div class = "U2__topTracksTitle">
+    <h1>Top Tracks<h1>
+  </div>
+
+  <li>
+    <div class = listNumberOne>
+      <div class = listOnePosition>
+        <p>1</p>
+      </div>
+      <div class = listOneImage>
+        <img src = ${U2_Track1Img.album.image[2]['#text']}>
+      </div>
+      <div class = listOneStats>
+        <p class = oneName>${U2_TopTracks[0].name}</p>
+        <p class = oneScrobbles>${U2_TopTracks[0].playcount} Scrobbles</p>
+      </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>2</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_Track2Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopTracks[1].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopTracks[1].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>3</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_Track3Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopTracks[2].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopTracks[2].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>4</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_Track4Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopTracks[3].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopTracks[3].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>5</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_Track5Img.album.image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopTracks[4].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopTracks[4].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  `
+  document.querySelector(".U2__topTracks").innerHTML = U2_html_topTracks
+
 
   });

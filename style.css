@@ -224,6 +224,52 @@ background-color:rgb(189, 189, 189)
 
 }
 
+/* TOP TRACK LIST */
+
+.U1__topTracks {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top:-20px;
+    margin-bottom: 20px;
+}
+
+.U2__topTracks {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.U1__topTracks li,
+.U2__topTracks li {
+    font-family: "Barlow-Regular";
+    display: grid;
+    grid-template-columns: 20px max-content 1fr 1fr;
+    align-items: center;
+    justify-content: left;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-bottom: 1.5px solid rgb(197, 197, 197);
+    width: 600px;
+}
+
+.U1__topTracks li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(22, 110, 234);
+}
+
+.U2__topTracks li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(186, 0, 0);
+
+}
+
 /* LIST SETTINGS */
 
 h1 {
