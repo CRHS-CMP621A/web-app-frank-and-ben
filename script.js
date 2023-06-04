@@ -26,6 +26,12 @@ let U1_RecentTracks;
 
 let U1_UserInfo;
 
+let U1_Artist1Img;
+let U1_Artist2Img;
+let U1_Artist3Img;
+let U1_Artist4Img;
+let U1_Artist5Img;
+
 function U1_getData() {
 
   //// TOP STATS ////
@@ -92,6 +98,50 @@ function U1_getData() {
 
 }
 
+function U1_getTopArtistImg() {
+
+  // #1 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[0].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Artist1Img = data.artist;
+    console.log("User 2 Artists Image Info:", U1_Artist1Img)
+  })
+
+  // #2 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[1].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Artist2Img = data.artist;
+    console.log("User 2 Artists Image Info:", U1_Artist2Img)
+  })
+
+  // #3 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[2].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Artist3Img = data.artist;
+    console.log("User 2 Artists Image Info:", U1_Artist3Img)
+  })
+
+  // #4 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[3].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Artist4Img = data.artist;
+    console.log("User 2 Artists Image Info:", U1_Artist4Img)
+  })
+
+  // #5 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[4].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U1_Artist5Img = data.artist;
+    console.log("User 2 Artists Image Info:", U1_Artist5Img)
+  })
+
+}
+
 //// USER 2 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
 
@@ -104,6 +154,12 @@ let U2_RecentAlbums;
 let U2_RecentTracks;
 
 let U2_UserInfo;
+
+let U2_Artist1Img;
+let U2_Artist2Img;
+let U2_Artist3Img;
+let U2_Artist4Img;
+let U2_Artist5Img;
 
 function U2_getData() {
 
@@ -171,6 +227,50 @@ function U2_getData() {
 
 }
 
+function U2_getTopArtistImg() {
+
+  // #1 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[0].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Artist1Img = data.artist;
+    console.log("User 2 Artists Image Info:", U2_Artist1Img)
+  })
+
+  // #2 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[1].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Artist2Img = data.artist;
+    console.log("User 2 Artists Image Info:", U2_Artist2Img)
+  })
+
+  // #3 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[2].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Artist3Img = data.artist;
+    console.log("User 2 Artists Image Info:", U2_Artist3Img)
+  })
+
+  // #4 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[3].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Artist4Img = data.artist;
+    console.log("User 2 Artists Image Info:", U2_Artist4Img)
+  })
+
+  // #5 Artist Image
+  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[4].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  .then(response => response.json())
+  .then(data => {
+    U2_Artist5Img = data.artist;
+    console.log("User 2 Artists Image Info:", U2_Artist5Img)
+  })
+
+}
+
 //// USER DATA COMPARING ////
 
 function calculateData(){
@@ -224,15 +324,21 @@ function calculateData(){
 
 }
 
-// Eventlistener for data fetching after pressing the submit button
+// Eventlisteners for data fetching after pressing the submit button
 document.querySelector(".submitBtn").addEventListener("click", function(e) {
   e.preventDefault()
   
   U1_getData()
-  U2_getData()  
+  U2_getData()
+  
+  document.querySelector(".resultsBtn").addEventListener("mouseover", function(e) {
+    U1_getTopArtistImg()
+    U2_getTopArtistImg()
+  });
 
   });
 
+// Eventlistener for showing all the processed data after clicking the Show Results button
 document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   e.preventDefault()
   hidden.classList.remove('hidden');
@@ -250,7 +356,12 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   document.querySelector(".U1__header").innerHTML = U1_html_header
 
   // Top Artists
+
   U1_html_topArtists = `
+
+  <div class = "U1__topArtistsTitle">
+    <h1>Top Artists<h1>
+  </div>
 
   <li>
     <div class = listNumberOne>
@@ -258,7 +369,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
         <p>1</p>
       </div>
       <div class = listOneImage>
-        <img src = ${U1_TopArtists[0].image[2]['#text']}>
+        <img src = ${U1_Artist1Img.image[2]['#text']}>
       </div>
       <div class = listOneStats>
         <p class = oneName>${U1_TopArtists[0].name}</p>
@@ -271,7 +382,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>2</p>
     </div>
     <div class = listImage>
-      <img src = ${U1_TopArtists[1].image[0]['#text']}>
+      <img src = ${U1_Artist2Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U1_TopArtists[1].name}</p>
@@ -286,7 +397,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>3</p>
     </div>
     <div class = listImage>
-      <img src = ${U1_TopArtists[2].image[0]['#text']}>
+      <img src = ${U1_Artist3Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U1_TopArtists[2].name}</p>
@@ -301,7 +412,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>4</p>
     </div>
     <div class = listImage>
-      <img src = ${U1_TopArtists[3].image[0]['#text']}>
+      <img src = ${U1_Artist4Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U1_TopArtists[3].name}</p>
@@ -316,7 +427,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>5</p>
     </div>
     <div class = listImage>
-      <img src = ${U1_TopArtists[4].image[0]['#text']}>
+      <img src = ${U1_Artist5Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U1_TopArtists[4].name}</p>
@@ -326,9 +437,94 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
     </div>
   </li>
 
-
   `
   document.querySelector(".U1__topArtists").innerHTML = U1_html_topArtists
+
+  // Top Albums
+
+  U1_html_topAlbums = `
+
+  <div class = "U1__topAlbumsTitle">
+    <h1>Top Albums<h1>
+  </div>
+
+  <li>
+    <div class = listNumberOne>
+      <div class = listOnePosition>
+        <p>1</p>
+      </div>
+      <div class = listOneImage>
+        <img src = ${U1_TopAlbums[0].image[2]['#text']}>
+      </div>
+      <div class = listOneStats>
+        <p class = oneName>${U1_TopAlbums[0].name}</p>
+        <p class = oneScrobbles>${U1_TopAlbums[0].playcount} Scrobbles</p>
+      </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>2</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopAlbums[1].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopAlbums[1].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopAlbums[1].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>3</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopAlbums[2].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopAlbums[2].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopAlbums[2].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>4</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopAlbums[3].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopAlbums[3].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopAlbums[3].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>5</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U1_TopAlbums[4].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U1_TopAlbums[4].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U1_TopAlbums[4].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  `
+  document.querySelector(".U1__topAlbums").innerHTML = U1_html_topAlbums
+
   // User 2 Grid HTML //
 
   // Header
@@ -341,15 +537,20 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   document.querySelector(".U2__header").innerHTML = U2_html_header
 
   // Top Artists
+
   U2_html_topArtists = `
   
+  <div class = "U2__topArtistsTitle">
+    <h1>Top Artists<h1>
+  </div>
+
   <li>
     <div class = listNumberOne>
       <div class = listOnePosition>
         <p>1</p>
       </div>
       <div class = listOneImage>
-        <img src = ${U2_TopArtists[0].image[2]['#text']}>
+        <img src = ${U2_Artist1Img.image[2]['#text']}>
       </div>
       <div class = listOneStats>
         <p class = oneName>${U2_TopArtists[0].name}</p>
@@ -362,7 +563,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>2</p>
     </div>
     <div class = listImage>
-      <img src = ${U2_TopArtists[1].image[0]['#text']}>
+      <img src = ${U2_Artist2Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U2_TopArtists[1].name}</p>
@@ -377,7 +578,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>3</p>
     </div>
     <div class = listImage>
-      <img src = ${U2_TopArtists[2].image[0]['#text']}>
+      <img src = ${U2_Artist3Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U2_TopArtists[2].name}</p>
@@ -392,7 +593,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>4</p>
     </div>
     <div class = listImage>
-      <img src = ${U2_TopArtists[3].image[0]['#text']}>
+      <img src = ${U2_Artist4Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U2_TopArtists[3].name}</p>
@@ -407,7 +608,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <p>5</p>
     </div>
     <div class = listImage>
-      <img src = ${U2_TopArtists[4].image[0]['#text']}>
+      <img src = ${U2_Artist3Img.image[0]['#text']}>
     </div>
     <div class = listName>
       <p>${U2_TopArtists[4].name}</p>
@@ -421,5 +622,90 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   `
 
   document.querySelector(".U2__topArtists").innerHTML = U2_html_topArtists
+
+  // Top Albums
+
+  U2_html_topAlbums = `
+
+  <div class = "U2__topAlbumsTitle">
+    <h1>Top Albums<h1>
+  </div>
+
+  <li>
+    <div class = listNumberOne>
+      <div class = listOnePosition>
+        <p>1</p>
+      </div>
+      <div class = listOneImage>
+        <img src = ${U2_TopAlbums[0].image[2]['#text']}>
+      </div>
+      <div class = listOneStats>
+        <p class = oneName>${U2_TopAlbums[0].name}</p>
+        <p class = oneScrobbles>${U2_TopAlbums[0].playcount} Scrobbles</p>
+      </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>2</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopAlbums[1].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopAlbums[1].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopAlbums[1].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>3</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopAlbums[2].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopAlbums[2].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopAlbums[2].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>4</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopAlbums[3].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopAlbums[3].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopAlbums[3].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  <li>
+    <div class = listPosition>
+      <p>5</p>
+    </div>
+    <div class = listImage>
+      <img src = ${U2_TopAlbums[4].image[0]['#text']}>
+    </div>
+    <div class = listName>
+      <p>${U2_TopAlbums[4].name}</p>
+    </div>
+    <div class = listScrobbles>
+      <p>${U2_TopAlbums[4].playcount} Scrobbles</p>
+    </div>
+  </li>
+
+  `
+  document.querySelector(".U2__topAlbums").innerHTML = U2_html_topAlbums
 
   });

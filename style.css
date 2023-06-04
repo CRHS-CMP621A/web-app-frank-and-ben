@@ -96,13 +96,15 @@ background-color:rgb(189, 189, 189)
 .U1__grid {
     border-right-style: solid;
     border-right-width: 2px;
-    border-right-color: black
+    border-right-color: black;
+    border-top: solid 4px rgb(22, 110, 234);
   }
   
 .U2__grid {
     border-left-style: solid;
     border-left-width: 2px;
-    border-left-color: black
+    border-left-color: black;
+    border-top: solid 4px rgb(186, 0, 0);
 }
 
 .U1__photo {
@@ -131,12 +133,14 @@ background-color:rgb(189, 189, 189)
     text-align: center;
 }
 
+
+/* TOP ARTIST LIST */
 .U1__topArtists {
     justify-items: center;
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 30px;
+    margin-top: -20px;
     margin-bottom: 20px;
 }
 
@@ -145,7 +149,7 @@ background-color:rgb(189, 189, 189)
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 30px;
+    margin-top: -20px;
     margin-bottom: 20px;
 }
 
@@ -166,10 +170,69 @@ background-color:rgb(189, 189, 189)
 
 .U1__topArtists li:hover {
     background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(22, 110, 234);
 }
 
 .U2__topArtists li:hover {
     background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(186, 0, 0);
+}
+
+/* TOP ALBUM LIST */
+
+.U1__topAlbums {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top:-20px;
+    margin-bottom: 20px;
+}
+
+.U2__topAlbums {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.U1__topAlbums li,
+.U2__topAlbums li {
+    font-family: "Barlow-Regular";
+    display: grid;
+    grid-template-columns: 20px max-content 1fr 1fr;
+    align-items: center;
+    justify-content: left;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-bottom: 1.5px solid rgb(197, 197, 197);
+    width: 600px;
+}
+
+.U1__topAlbums li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(22, 110, 234);
+}
+
+.U2__topAlbums li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(186, 0, 0);
+
+}
+
+/* LIST SETTINGS */
+
+h1 {
+    font-family: "Barlow-Regular";
+    font-size: 30px;
+    text-align: left;
+    margin-top: 40px;
+    margin-left: -300px;
+    margin-bottom: -35px;
 }
 
 .listPosition {
@@ -186,8 +249,8 @@ background-color:rgb(189, 189, 189)
 
 .listName {
     font-family: "Barlow-Bold";
-    text-align: justify;
     grid-column: 3;
+    width: 375px;
 }
 
 .listImage {
@@ -204,7 +267,7 @@ background-color:rgb(189, 189, 189)
     grid-template-columns: 20px max-content 1fr;
     align-items: center;
     justify-content: left;
- 
+    margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
     width: 600px;
@@ -217,9 +280,9 @@ background-color:rgb(189, 189, 189)
 }
 
 .listOneStats {
-    text-align: justify;
     grid-column: 3;
-    margin-left: 50px;
+    margin-left: 25px;
+    width: 340px;
 }
 
 .listOneImage {
@@ -231,7 +294,7 @@ background-color:rgb(189, 189, 189)
 
 .oneName {
     font-family: "Barlow-Bold";
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: -12px;
     margin-top: 2px;
 }
@@ -240,3 +303,4 @@ background-color:rgb(189, 189, 189)
     font-family: "Barlow-Regular";
     font-size: 20px;
 }
+
