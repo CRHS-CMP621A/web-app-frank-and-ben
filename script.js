@@ -5,6 +5,8 @@ let test = "test"
 // Constants //
 const form = document.querySelector('.username__form');
 const hidden = document.querySelector('.hidden');
+const hidesubmit = document.querySelector('.hidesubmit');
+const hideresults = document.querySelector('.hideresults');
 
 // Last.fm API Key
 const KEY = `b725d7c3f1302cf77740c3198f72ff35`;
@@ -12,8 +14,24 @@ const KEY = `b725d7c3f1302cf77740c3198f72ff35`;
 // Variables //
 
 // Usernames
-const USER1 = "Superfrancis123";
-const USER2 = "weezersharpie";
+let inputValue1 = document.querySelector("#U1_input").value; 
+let inputValue2 = document.querySelector("#U2_input").value;
+
+let USER1;
+let USER2;
+
+// Functions //
+function inputBox() {
+  inputValue1 = document.querySelector("#U1_input").value; 
+  inputValue2 = document.querySelector("#U2_input").value; 
+
+  USER1 = inputValue1;
+  USER2 = inputValue2;
+}
+
+setInterval(inputBox, 100);
+
+hidesubmit.classList.remove('hidesubmit')
 
 //// USER 1 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
@@ -586,6 +604,9 @@ function calculateData(){
 // Eventlisteners for data fetching after pressing the submit button
 document.querySelector(".submitBtn").addEventListener("click", function(e) {
   e.preventDefault()
+  hidesubmit.classList.add('hidesubmit')
+  hideresults.classList.remove('hideresults')
+  hidden.classList.add('hidden');
   
   U1_getData()
   U2_getData()
@@ -603,7 +624,10 @@ document.querySelector(".submitBtn").addEventListener("click", function(e) {
 // Eventlistener for showing all the processed data after clicking the Show Results button
 document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   e.preventDefault()
+  hideresults.classList.add('hideresults')
+  hidesubmit.classList.remove('hidesubmit')
   hidden.classList.remove('hidden');
+
 
   // User 1 Grid HTML //
 
@@ -612,6 +636,11 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   
   <img src = ${U1_UserInfo.image[2]['#text']} class = U1__photo size = 600px>
   <h2>${U1_UserInfo.name}<h2>
+  <p class = U1_ownScrobbles>${U1_UserInfo.playcount} Total Scrobbles</p>
+  <p class = U1_ownArtists>${U1_UserInfo.artist_count} Artists</p>
+  <p class = U1_ownAlbums>${U1_UserInfo.album_count} Albums</p>
+  <p class = U1_ownTracks>${U1_UserInfo.track_count} Tracks</p>
+
   
   `
 
@@ -879,6 +908,10 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   
   <img src = ${U2_UserInfo.image[2]['#text']} class = U2__photo size = 600px>
   <h2>${U2_UserInfo.name}<h2>
+  <p class = U2_ownScrobbles>${U2_UserInfo.playcount} Total Scrobbles</p>
+  <p class = U2_ownArtists>${U2_UserInfo.artist_count} Artists</p>
+  <p class = U2_ownAlbums>${U2_UserInfo.album_count} Albums</p>
+  <p class = U2_ownTracks>${U2_UserInfo.track_count} Tracks</p>
   
   `
   document.querySelector(".U2__header").innerHTML = U2_html_header

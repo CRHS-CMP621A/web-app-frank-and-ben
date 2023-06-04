@@ -68,21 +68,54 @@ nav {
 
 }
 
+.submitBtn {
+    grid-column: 1;
+}
+
+.resultsBtn {
+    grid-column: 2;
+}
+
 .submitBtn:hover,
 .resultsBtn:hover {
     
-background-color:rgb(189, 189, 189)
+background-color:rgb(189, 189, 189);
 }
 
 .username__input__friend {
     margin: 5px;
+    background-color:rgb(240,240,240);
+    font-family: "Barlow-Regular";
+    padding: 2px;
+    font-size: 18px;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
 .username__input__self {
     margin: 5px;
+    background-color:rgb(240,240,240);
+    font-family: "Barlow-Regular";
+    padding: 2px;
+    font-size: 18px;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
+.username__label {
+    font-size: 18px;
+}
+
+
 .hidden {
+    display: none;
+}
+
+.hidesubmit {
+    display: none;
+}
+
+.hideresults {
     display: none;
 }
 
@@ -135,6 +168,32 @@ background-color:rgb(189, 189, 189)
     text-align: center;
 }
 
+.U1_ownScrobbles,
+.U2_ownScrobbles {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+}
+
+.U1_ownArtists,
+.U2_ownArtists {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.U1_ownAlbums,
+.U2_ownAlbums {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.U1_ownTracks,
+.U2_ownTracks {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+    margin-top: -10px;
+}
 
 /* TOP ARTIST LIST */
 .U1__topArtists {
@@ -356,7 +415,7 @@ h1 {
 
 h2 {
     font-family: "Barlow-Regular";
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: -15px;
 }
 
