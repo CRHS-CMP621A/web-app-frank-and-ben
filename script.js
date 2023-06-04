@@ -21,6 +21,8 @@ let USER1;
 let USER2;
 
 // Functions //
+
+// Input Box Checker
 function inputBox() {
   inputValue1 = document.querySelector("#U1_input").value; 
   inputValue2 = document.querySelector("#U2_input").value; 
@@ -31,7 +33,42 @@ function inputBox() {
 
 setInterval(inputBox, 100);
 
+// Initial Unhiding of the Submit Button
 hidesubmit.classList.remove('hidesubmit')
+
+// Unix Timestamp Conversion
+function convertUnixTimestamp(timestamp) {
+  const date = new Date(timestamp * 1000);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString('en-US', options);
+  return addOrdinalIndicator(formattedDate);
+}
+
+function addOrdinalIndicator(dateString) {
+  const day = dateString.match(/\d+/)[0];
+  let ordinalIndicator;
+
+  if (day >= 11 && day <= 13) {
+    ordinalIndicator = 'th';
+  } else {
+    const lastDigit = day % 10;
+    switch (lastDigit) {
+      case 1:
+        ordinalIndicator = 'st';
+        break;
+      case 2:
+        ordinalIndicator = 'nd';
+        break;
+      case 3:
+        ordinalIndicator = 'rd';
+        break;
+      default:
+        ordinalIndicator = 'th';
+    }
+  }
+
+  return dateString.replace(/\d+/, day + ordinalIndicator);
+}
 
 //// USER 1 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
@@ -57,6 +94,8 @@ let U1_Track2Img;
 let U1_Track3Img;
 let U1_Track4Img;
 let U1_Track5Img;
+
+let U1_JoinDate;
 
 function U1_getData() {
 
@@ -290,6 +329,12 @@ function U1_getTopTrackImg() {
 
 }
 
+function U1_getJoinDate() {
+  const unixTimestamp = U1_UserInfo.registered.unixtime;
+  U1_JoinDate = convertUnixTimestamp(unixTimestamp);
+  console.log(U1_JoinDate);
+}
+
 //// USER 2 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
 
@@ -314,6 +359,8 @@ let U2_Track2Img;
 let U2_Track3Img;
 let U2_Track4Img;
 let U2_Track5Img;
+
+let U2_JoinDate;
 
 function U2_getData() {
 
@@ -548,10 +595,21 @@ function U2_getTopTrackImg() {
 
 }
 
+function U2_getJoinDate() {
+  const unixTimestamp = U2_UserInfo.registered.unixtime;
+  U2_JoinDate = convertUnixTimestamp(unixTimestamp);
+  console.log(U2_JoinDate);
+}
+
 //// USER DATA COMPARING ////
+
+
 
 function calculateData(){
 
+  //// SCROBBLE DIFFERENCES ////
+
+  // Total Scrobble Difference
   //// SCROBBLE DIFFERENCES ////
 
   // Total Scrobble Difference
@@ -590,12 +648,6 @@ function calculateData(){
     topTrackScrobbleDifference = U2_TopTracks[0].playcount - U1_TopTracks[0].playcount
   }
 
-  // Logging
-  console.log(totalScrobbleDifference)
-  console.log(topArtistScrobbleDifference)
-  console.log(topAlbumScrobbleDifference)
-  console.log(topTrackScrobbleDifference)
-
 
   //// SCROBBLE DIFFERENCES ////
 
@@ -612,6 +664,9 @@ document.querySelector(".submitBtn").addEventListener("click", function(e) {
   U2_getData()
   
   document.querySelector(".resultsBtn").addEventListener("mouseover", function(e) {
+    calculateData()
+    U1_getJoinDate()
+    U2_getJoinDate()
     U1_getTopArtistImg()
     U2_getTopArtistImg()
     U1_getTopTrackImg()
@@ -1172,5 +1227,103 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
 
   `
   document.querySelector(".U2__topTracks").innerHTML = U2_html_topTracks
+
+  // Table HTML //
+
+  comparisonTable_html = `
+
+  <h2>Stats Leaderboard</h2>
+  <table class = "comparisonTable">
+    <thead>
+        <tr class = tableHeads>
+            <th class = corner__tableHead></th>
+            <th class = U1__tableHead>User 1</th>
+            <th class = U2__tableHead>User 2</th>
+            <th class = winner__tableHead>Winner</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class = "statName">Total Scrobbles</td>
+          <td><span class="U1_mainStat">${U1_UserInfo.playcount}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Top Artist Scrobbles</td>
+          <td><span class="U1_mainStat">${U1_TopArtists[0].playcount}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_TopArtists[0].playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Top Album Scrobbles</td>
+          <td><span class="U1_mainStat">${U1_TopAlbums[0].playcount}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_TopAlbums[0].playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Top Track Scrobbles</td>
+          <td><span class="U1_mainStat">${U1_TopTracks[0].playcount}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_TopTracks[0].playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Artist Variety</td>
+          <td><span class="U1_mainStat">${U1_UserInfo.artist_count}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.artist_count}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Album Variety</td>
+          <td><span class="U1_mainStat">${U1_UserInfo.album_count}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.album_count}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Track Variety</td>
+          <td><span class="U1_mainStat">${U1_UserInfo.track_count}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.track_count}</span> <span class="U2_diffText">(31050)</span></td>
+          <td>6000</td>
+        </tr>
+        <tr>
+          <td class = "statName">Last.fm Account Age</td>
+          <td><span class="U1_mainStat">${U1_JoinDate}</span> <span class="U1_diffText">(31050)</span></td>
+          <td><span class="U2_mainStat">${U2_JoinDate}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="Winner">36236</span></td>
+        </tr>
+    </tbody>
+</table>
+
+`
+  document.querySelector(".table__container").innerHTML = comparisonTable_html
+
+  // Select all rows in the table body
+  const tableRows = document.querySelectorAll('.comparisonTable tbody tr');
+
+  // Loop through each row
+  tableRows.forEach((row) => {
+  const U1_mainStat = row.querySelector('.U1_mainStat');
+  const U2_mainStat = row.querySelector('.U2_mainStat');
+  const U1_diffText = row.querySelector('.U1_diffText');
+  const U2_diffText = row.querySelector('.U2_diffText');
+
+  const U1_value = parseInt(U1_mainStat.textContent);
+  const U2_value = parseInt(U2_mainStat.textContent);
+
+  // Compare the values and apply color classes to mainStat elements
+
+  // Adjust diff-text colors accordingly
+  if (U1_value > U2_value) {
+    U1_diffText.classList.add('green-text');
+  } else {
+    U1_diffText.classList.add('red-text');
+  }
+
+  if (U2_value > U1_value) {
+    U2_diffText.classList.add('green-text');
+  } else {
+    U2_diffText.classList.add('red-text');
+  }
+  });
 
   });

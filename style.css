@@ -450,6 +450,7 @@ h2 {
 
 .corner__tableHead {
     background-color: rgb(196, 196, 196);
+    width: 200px;
 }
 
 .statName {
@@ -479,4 +480,12 @@ td:hover {
 .comparisonTable tbody tr {
     border-top: 2px solid #000000;
     border-bottom: 2px solid #000000;
+}
+
+.green-text {
+  color: rgb(0, 202, 0);
+}
+
+.red-text {
+  color: red;
 }
