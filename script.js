@@ -13,7 +13,7 @@ const KEY = `b725d7c3f1302cf77740c3198f72ff35`;
 
 // Usernames
 const USER1 = "Superfrancis123";
-const USER2 = "Exticx";
+const USER2 = "weezersharpie";
 
 //// USER 1 DATA ////
 // Calls data for the first user from the Last.fm API and stores it on the site
@@ -156,6 +156,35 @@ function U1_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[0].name}&artist=${U1_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image')) {
+      // Add a Default Image URL for 3 Properites
+      data.track.album.image = [
+        { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" },
+        { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" },
+        { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" }
+      ];
+    } else {
+      // Check if image[0] is Missing
+      if (!data.track.album.image[0] || !data.track.album.image[0]['#text']) {
+        data.track.album.image[0] = { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" };
+      }
+      // Check if image[1] is Missing
+      if (!data.track.album.image[1] || !data.track.album.image[1]['#text']) {
+        data.track.album.image[1] = { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" };
+      }
+      // Check if image[2] is Missing
+      if (!data.track.album.image[2] || !data.track.album.image[2]['#text']) {
+        data.track.album.image[2] = { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" };
+      }
+    }
+
     U1_Track1Img = data.track;
     console.log("User 1 Track Image Info:", U1_Track1Img)
   })
@@ -164,6 +193,18 @@ function U1_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[1].name}&artist=${U1_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U1_Track2Img = data.track;
     console.log("User 1 Track Image Info:", U1_Track2Img)
   })
@@ -172,6 +213,19 @@ function U1_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[2].name}&artist=${U1_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    // Missing Album Proprerty Error Checker
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U1_Track3Img = data.track;
     console.log("User 1 Track Image Info:", U1_Track3Img)
   })
@@ -180,6 +234,18 @@ function U1_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[3].name}&artist=${U1_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U1_Track4Img = data.track;
     console.log("User 1 Track Image Info:", U1_Track4Img)
   })
@@ -188,6 +254,18 @@ function U1_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[4].name}&artist=${U1_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+  
     U1_Track5Img = data.track;
     console.log("User 1 Track Image Info:", U1_Track5Img)
   })
@@ -335,6 +413,35 @@ function U2_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[0].name}&artist=${U2_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+    
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image')) {
+      // Add a Default Image URL for 3 Properites
+      data.track.album.image = [
+        { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" },
+        { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" },
+        { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" }
+      ];
+    } else {
+      // Check if image[0] is Missing
+      if (!data.track.album.image[0] || !data.track.album.image[0]['#text']) {
+        data.track.album.image[0] = { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" };
+      }
+      // Check if image[1] is Missing
+      if (!data.track.album.image[1] || !data.track.album.image[1]['#text']) {
+        data.track.album.image[1] = { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" };
+      }
+      // Check if image[2] is Missing
+      if (!data.track.album.image[2] || !data.track.album.image[2]['#text']) {
+        data.track.album.image[2] = { '#text': "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png" };
+      }
+    }
+
     U2_Track1Img = data.track;
     console.log("User 2 Track Image Info:", U2_Track1Img)
   })
@@ -343,6 +450,18 @@ function U2_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[1].name}&artist=${U2_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U2_Track2Img = data.track;
     console.log("User 2 Track Image Info:", U2_Track2Img)
   })
@@ -351,14 +470,40 @@ function U2_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[2].name}&artist=${U2_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    // Missing Album Proprerty Error Checker
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U2_Track3Img = data.track;
-    console.log("User 2 Track Image Info:", U2_Track3Img)
-  })
+    console.log("User 2 Track Image Info:", U2_Track3Img);
+  });
+
 
   // #4 Artist Image
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[3].name}&artist=${U2_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U2_Track4Img = data.track;
     console.log("User 2 Track Image Info:", U2_Track4Img)
   })
@@ -367,6 +512,18 @@ function U2_getTopTrackImg() {
   fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[4].name}&artist=${U2_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
+
+    if (!data.track.hasOwnProperty('album')) {
+      // Create Album Object
+      data.track.album = {};
+    }
+
+    // Missing or Blank Image Proprerty Error Checker
+    if (!data.track.album.hasOwnProperty('image') || data.track.album.image[0]['#text'] === '') {
+      // Add a Default Image URL
+      data.track.album.image = [{ '#text': "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png" }];
+    }
+
     U2_Track5Img = data.track;
     console.log("User 2 Track Image Info:", U2_Track5Img)
   })
@@ -447,7 +604,7 @@ document.querySelector(".submitBtn").addEventListener("click", function(e) {
 document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   e.preventDefault()
   hidden.classList.remove('hidden');
-  
+
   // User 1 Grid HTML //
 
   // Header
