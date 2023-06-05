@@ -720,8 +720,6 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
     <h1>Top Artists<h1>
   </div>
 
-  //  LINK TESTING
-
   <li>
     <div class = listNumberOne>
       <div class = listOnePosition>
@@ -731,7 +729,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
         <img src = ${U1_Artist1Img.image[2]['#text']}>
       </div>
       <div class = listOneStats>
-        <a class = oneName href = ${U1_TopArtists[0].url}>${U1_TopArtists[0].name}</a>
+        <a class = oneName  href = ${U1_TopArtists[0].url}>${U1_TopArtists[0].name}</a>
         <p class = oneScrobbles>${U1_TopArtists[0].playcount} Scrobbles</p>
       </div>
   </li>
