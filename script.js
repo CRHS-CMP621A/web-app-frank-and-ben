@@ -742,7 +742,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_Artist2Img.image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopArtists[1].name}</p>
+      <a target = "_blank" href = ${U1_TopArtists[1].url}>${U1_TopArtists[1].name}</p>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopArtists[1].playcount} Scrobbles</p>
