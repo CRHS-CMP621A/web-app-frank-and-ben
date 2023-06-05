@@ -603,7 +603,18 @@ function U2_getJoinDate() {
 
 //// USER DATA COMPARING ////
 
+let totalScrobbleDifference;
+let topArtistScrobbleDifference;
+let topAlbumScrobbleDifference;
+let topTrackScrobbleDifference;
 
+let artistVarietyDifference;
+let albumVarietyDifference;
+let trackVarietyDifference;
+
+function positiveDifference(a, b) {
+  return Math.abs(a - b);
+}
 
 function calculateData(){
 
@@ -613,41 +624,41 @@ function calculateData(){
   //// SCROBBLE DIFFERENCES ////
 
   // Total Scrobble Difference
-  if (U1_UserInfo.playcount > U2_UserInfo.playcount) {
-    totalScrobbleDifference = U1_UserInfo.playcount - U2_UserInfo.playcount
-  }
 
-  if (U2_UserInfo.playcount > U1_UserInfo.playcount) {
-    totalScrobbleDifference = U2_UserInfo.playcount - U1_UserInfo.playcount
-  }
+  totalScrobbleDifference = positiveDifference(U1_UserInfo.playcount, U2_UserInfo.playcount)
     
   // Top Artist Scrobble Difference
-  if (U1_TopArtists[0].playcount > U2_TopArtists[0].playcount) {
-    topArtistScrobbleDifference = U1_TopArtists[0].playcount - U2_TopArtists[0].playcount
-  }
 
-  if (U2_TopArtists[0].playcount > U1_TopArtists[0].playcount) {
-    topArtistScrobbleDifference = U2_TopArtists[0].playcount - U1_TopArtists[0].playcount
-  }
+  topArtistScrobbleDifference = positiveDifference(U1_TopArtists[0].playcount, U2_TopArtists[0].playcount)
 
   // Top Album Scrobble Difference
-  if (U1_TopAlbums[0].playcount > U2_TopAlbums[0].playcount) {
-    topAlbumScrobbleDifference = U1_TopAlbums[0].playcount - U2_TopAlbums[0].playcount
-  }
 
-  if (U2_TopAlbums[0].playcount > U1_TopAlbums[0].playcount) {
-    topAlbumScrobbleDifference = U2_TopAlbums[0].playcount - U1_TopAlbums[0].playcount
-  }
+  topAlbumScrobbleDifference = positiveDifference(U1_TopAlbums[0].playcount, U2_TopAlbums[0].playcount)
 
   // Top Track Scrobble Difference
-  if (U1_TopTracks[0].playcount > U2_TopTracks[0].playcount) {
-    topTrackScrobbleDifference = U1_TopTracks[0].playcount - U2_TopTracks[0].playcount
-  }
 
-  if (U2_TopTracks[0].playcount > U1_TopTracks[0].playcount) {
-    topTrackScrobbleDifference = U2_TopTracks[0].playcount - U1_TopTracks[0].playcount
-  }
+  topTrackScrobbleDifference = positiveDifference(U1_TopTracks[0].playcount, U2_TopTracks[0].playcount)
 
+  // Artist Variety Difference
+
+  artistVarietyDifference = positiveDifference(U1_UserInfo.artist_count, U2_UserInfo.artist_count)
+
+  // Album Variety Difference
+
+  albumVarietyDifference = positiveDifference(U1_UserInfo.album_count, U2_UserInfo.album_count)
+
+  // Track Variety Difference
+
+  trackVarietyDifference = positiveDifference(U1_UserInfo.track_count, U2_UserInfo.track_count)
+
+  console.log(totalScrobbleDifference)
+  console.log(topArtistScrobbleDifference)
+  console.log(topAlbumScrobbleDifference)
+  console.log(topTrackScrobbleDifference)
+  console.log(artistVarietyDifference)
+  console.log(albumVarietyDifference)
+  console.log(trackVarietyDifference)
+  
 
   //// SCROBBLE DIFFERENCES ////
 
@@ -1245,44 +1256,44 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
     <tbody>
         <tr>
           <td class = "statName">Total Scrobbles</td>
-          <td><span class="U1_mainStat">${U1_UserInfo.playcount}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_UserInfo.playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_UserInfo.playcount}</span> <span class="U1_diffText">(${totalScrobbleDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.playcount}</span> <span class="U2_diffText">(${totalScrobbleDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
           <td class = "statName">Top Artist Scrobbles</td>
-          <td><span class="U1_mainStat">${U1_TopArtists[0].playcount}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_TopArtists[0].playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_TopArtists[0].playcount}</span> <span class="U1_diffText">(${topArtistScrobbleDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_TopArtists[0].playcount}</span> <span class="U2_diffText">(${topArtistScrobbleDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
           <td class = "statName">Top Album Scrobbles</td>
-          <td><span class="U1_mainStat">${U1_TopAlbums[0].playcount}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_TopAlbums[0].playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_TopAlbums[0].playcount}</span> <span class="U1_diffText">(${topAlbumScrobbleDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_TopAlbums[0].playcount}</span> <span class="U2_diffText">(${topAlbumScrobbleDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
           <td class = "statName">Top Track Scrobbles</td>
-          <td><span class="U1_mainStat">${U1_TopTracks[0].playcount}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_TopTracks[0].playcount}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_TopTracks[0].playcount}</span> <span class="U1_diffText">(${topTrackScrobbleDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_TopTracks[0].playcount}</span> <span class="U2_diffText">(${topTrackScrobbleDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
           <td class = "statName">Artist Variety</td>
-          <td><span class="U1_mainStat">${U1_UserInfo.artist_count}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_UserInfo.artist_count}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_UserInfo.artist_count}</span> <span class="U1_diffText">(${artistVarietyDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.artist_count}</span> <span class="U2_diffText">(${artistVarietyDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
           <td class = "statName">Album Variety</td>
-          <td><span class="U1_mainStat">${U1_UserInfo.album_count}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_UserInfo.album_count}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_UserInfo.album_count}</span> <span class="U1_diffText">(${albumVarietyDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.album_count}</span> <span class="U2_diffText">(${albumVarietyDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
           <td class = "statName">Track Variety</td>
-          <td><span class="U1_mainStat">${U1_UserInfo.track_count}</span> <span class="U1_diffText">(31050)</span></td>
-          <td><span class="U2_mainStat">${U2_UserInfo.track_count}</span> <span class="U2_diffText">(31050)</span></td>
+          <td><span class="U1_mainStat">${U1_UserInfo.track_count}</span> <span class="U1_diffText">(${trackVarietyDifference})</span></td>
+          <td><span class="U2_mainStat">${U2_UserInfo.track_count}</span> <span class="U2_diffText">(${trackVarietyDifference})</span></td>
           <td>6000</td>
         </tr>
         <tr>
