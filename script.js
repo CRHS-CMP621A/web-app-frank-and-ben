@@ -1248,8 +1248,8 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
     <thead>
         <tr class = tableHeads>
             <th class = corner__tableHead></th>
-            <th class = U1__tableHead>User 1</th>
-            <th class = U2__tableHead>User 2</th>
+            <th class = U1__tableHead>${USER1}</th>
+            <th class = U2__tableHead>${USER2}</th>
             <th class = winner__tableHead>Winner</th>
         </tr>
     </thead>
