@@ -1086,7 +1086,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
         <img src = ${U2_TopAlbums[0].image[2]['#text']}>
       </div>
       <div class = listOneStats>
-        <a class = oneName  target = "_blank" href = ${U2_TopArtists[0].url}>${U2_TopArtists[0].name}</a>
+        <a class = oneName  target = "_blank" href = ${U2_TopAlbums[0].url}>${U2_TopAlbums[0].name}</a>
         <p class = oneScrobbles>${U2_TopAlbums[0].playcount} Scrobbles</p>
       </div>
   </li>
@@ -1099,7 +1099,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U2_TopAlbums[1].image[0]['#text']}>
     </div>
     <div class = listName>
-      <a target = "_blank" href = ${U2_TopArtists[1].url}>${U2_TopArtists[1].name}</a>
+      <a target = "_blank" href = ${U2_TopAlbums[1].url}>${U2_TopAlbums[1].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U2_TopAlbums[1].playcount} Scrobbles</p>
@@ -1114,7 +1114,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U2_TopAlbums[2].image[0]['#text']}>
     </div>
     <div class = listName>
-      <a target = "_blank" href = ${U2_TopArtists[2].url}>${U2_TopArtists[2].name}</a>
+      <a target = "_blank" href = ${U2_TopAlbums[2].url}>${U2_TopAlbums[2].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U2_TopAlbums[2].playcount} Scrobbles</p>
@@ -1129,7 +1129,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U2_TopAlbums[3].image[0]['#text']}>
     </div>
     <div class = listName>
-      <a target = "_blank" href = ${U2_TopArtists[3].url}>${U2_TopArtists[3].name}</a>
+      <a target = "_blank" href = ${U2_TopAlbums[3].url}>${U2_TopAlbums[3].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U2_TopAlbums[3].playcount} Scrobbles</p>
@@ -1144,7 +1144,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U2_TopAlbums[4].image[0]['#text']}>
     </div>
     <div class = listName>
-      <a target = "_blank" href = ${U2_TopArtists[4].url}>${U2_TopArtists[4].name}</a>
+      <a target = "_blank" href = ${U2_TopAlbums[4].url}>${U2_TopAlbums[4].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U2_TopAlbums[4].playcount} Scrobbles</p>
