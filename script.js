@@ -814,7 +814,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
         <img src = ${U1_TopAlbums[0].image[2]['#text']}>
       </div>
       <div class = listOneStats>
-        <p class = oneName>${U1_TopAlbums[0].name}</p>
+        <a class = oneName target = "_blank" href = ${U1_TopAlbums[0].url}>${U1_TopAlbums[0].name}</a>
         <p class = oneScrobbles>${U1_TopAlbums[0].playcount} Scrobbles</p>
       </div>
   </li>
@@ -827,7 +827,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_TopAlbums[1].image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopAlbums[1].name}</p>
+      <a target = "_blank" href = ${U1_TopAlbums[1].url}>${U1_TopAlbums[1].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopAlbums[1].playcount} Scrobbles</p>
@@ -842,7 +842,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_TopAlbums[2].image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopAlbums[2].name}</p>
+      <a target = "_blank" href = ${U1_TopAlbums[2].url}>${U1_TopAlbums[2].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopAlbums[2].playcount} Scrobbles</p>
@@ -857,7 +857,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_TopAlbums[3].image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopAlbums[3].name}</p>
+      <a target = "_blank" href = ${U1_TopAlbums[3].url}>${U1_TopAlbums[3].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopAlbums[3].playcount} Scrobbles</p>
@@ -872,7 +872,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_TopAlbums[4].image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopAlbums[4].name}</p>
+      <a target = "_blank" href = ${U1_TopAlbums[4].url}>${U1_TopAlbums[4].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopAlbums[4].playcount} Scrobbles</p>
