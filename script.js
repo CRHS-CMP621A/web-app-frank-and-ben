@@ -757,7 +757,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_Artist3Img.image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopArtists[2].name}</p>
+      <a target = "_blank" href = ${U1_TopArtists[2].url}>${U1_TopArtists[2].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopArtists[2].playcount} Scrobbles</p>
@@ -772,7 +772,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_Artist4Img.image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopArtists[3].name}</p>
+      <a target = "_blank" href = ${U1_TopArtists[3].url}>${U1_TopArtists[3].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopArtists[3].playcount} Scrobbles</p>
@@ -787,7 +787,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
       <img src = ${U1_Artist5Img.image[0]['#text']}>
     </div>
     <div class = listName>
-      <p>${U1_TopArtists[4].name}</p>
+      <a target = "_blank" href = ${U1_TopArtists[4].url}>${U1_TopArtists[4].name}</a>
     </div>
     <div class = listScrobbles>
       <p>${U1_TopArtists[4].playcount} Scrobbles</p>
