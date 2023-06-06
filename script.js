@@ -102,7 +102,7 @@ function U1_getData() {
   //// TOP STATS ////
 
   // Top Artists
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_TopArtists = data.topartists.artist;
@@ -110,7 +110,7 @@ function U1_getData() {
     })
 
   // Top Albums
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_TopAlbums = data.topalbums.album;
@@ -118,7 +118,7 @@ function U1_getData() {
     })
 
   // Top Tracks
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_TopTracks = data.toptracks.track;
@@ -128,7 +128,7 @@ function U1_getData() {
   //// RECENT STATS ////
   
   // Recent Artists
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&period=7day&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER1}&api_key=${KEY}&period=7day&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_RecentArtists = data.topartists.artist;
@@ -136,7 +136,7 @@ function U1_getData() {
     })
 
   // Recent Albums
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER1}&api_key=${KEY}&period=7day&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER1}&api_key=${KEY}&period=7day&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_RecentAlbums = data.topalbums.album;
@@ -144,7 +144,7 @@ function U1_getData() {
     })
 
   // Recent Tracks
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_RecentTracks = data.recenttracks.track;
@@ -154,7 +154,7 @@ function U1_getData() {
   //// OVERALL STATS ////
 
   // User Info
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER1}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U1_UserInfo = data.user;
@@ -166,7 +166,7 @@ function U1_getData() {
 function U1_getTopArtistImg() {
 
   // #1 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[0].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[0].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U1_Artist1Img = data.artist;
@@ -174,7 +174,7 @@ function U1_getTopArtistImg() {
   })
 
   // #2 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[1].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[1].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U1_Artist2Img = data.artist;
@@ -182,7 +182,7 @@ function U1_getTopArtistImg() {
   })
 
   // #3 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[2].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[2].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U1_Artist3Img = data.artist;
@@ -190,7 +190,7 @@ function U1_getTopArtistImg() {
   })
 
   // #4 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[3].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[3].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U1_Artist4Img = data.artist;
@@ -198,7 +198,7 @@ function U1_getTopArtistImg() {
   })
 
   // #5 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[4].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U1_TopArtists[4].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U1_Artist5Img = data.artist;
@@ -210,7 +210,7 @@ function U1_getTopArtistImg() {
 function U1_getTopTrackImg() {
 
   // #1 Track Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[0].name}&artist=${U1_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[0].name}&artist=${U1_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -247,7 +247,7 @@ function U1_getTopTrackImg() {
   })
 
   // #2 Track Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[1].name}&artist=${U1_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[1].name}&artist=${U1_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -267,7 +267,7 @@ function U1_getTopTrackImg() {
   })
 
   // #3 Track Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[2].name}&artist=${U1_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[2].name}&artist=${U1_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -288,7 +288,7 @@ function U1_getTopTrackImg() {
   })
 
   // #4 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[3].name}&artist=${U1_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[3].name}&artist=${U1_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -308,7 +308,7 @@ function U1_getTopTrackImg() {
   })
 
   // #5 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[4].name}&artist=${U1_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U1_TopTracks[4].name}&artist=${U1_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -367,7 +367,7 @@ function U2_getData() {
   //// TOP STATS ////
 
   // Top Artists
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_TopArtists = data.topartists.artist;
@@ -375,7 +375,7 @@ function U2_getData() {
     })
 
   // Top Albums
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_TopAlbums = data.topalbums.album;
@@ -383,7 +383,7 @@ function U2_getData() {
     })
 
   // Top Tracks
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_TopTracks = data.toptracks.track;
@@ -393,7 +393,7 @@ function U2_getData() {
   //// RECENT STATS ////
   
   // Recent Artists
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&period=7day&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&limit=5&user=${USER2}&api_key=${KEY}&period=7day&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_RecentArtists = data.topartists.artist;
@@ -401,7 +401,7 @@ function U2_getData() {
     })
 
   // Recent Albums
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER2}&api_key=${KEY}&period=7day&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getTopAlbums&limit=5&user=${USER2}&api_key=${KEY}&period=7day&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_RecentAlbums = data.topalbums.album;
@@ -409,7 +409,7 @@ function U2_getData() {
     })
 
   // Recent Tracks
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_RecentTracks = data.recenttracks.track;
@@ -419,7 +419,7 @@ function U2_getData() {
   //// OVERALL STATS ////
 
   // User Info
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getInfo&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
     .then(response => response.json())
     .then(data => {
       U2_UserInfo = data.user;
@@ -431,7 +431,7 @@ function U2_getData() {
 function U2_getTopArtistImg() {
 
   // #1 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[0].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[0].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U2_Artist1Img = data.artist;
@@ -439,7 +439,7 @@ function U2_getTopArtistImg() {
   })
 
   // #2 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[1].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[1].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U2_Artist2Img = data.artist;
@@ -447,7 +447,7 @@ function U2_getTopArtistImg() {
   })
 
   // #3 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[2].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[2].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U2_Artist3Img = data.artist;
@@ -455,7 +455,7 @@ function U2_getTopArtistImg() {
   })
 
   // #4 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[3].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[3].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U2_Artist4Img = data.artist;
@@ -463,7 +463,7 @@ function U2_getTopArtistImg() {
   })
 
   // #5 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[4].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=${U2_TopArtists[4].name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
     U2_Artist5Img = data.artist;
@@ -475,7 +475,7 @@ function U2_getTopArtistImg() {
 function U2_getTopTrackImg() {
 
   // #1 Track Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[0].name}&artist=${U2_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[0].name}&artist=${U2_TopTracks[0].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -512,7 +512,7 @@ function U2_getTopTrackImg() {
   })
 
   // #2 Track Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[1].name}&artist=${U2_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[1].name}&artist=${U2_TopTracks[1].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -532,7 +532,7 @@ function U2_getTopTrackImg() {
   })
 
   // #3 Track Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[2].name}&artist=${U2_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[2].name}&artist=${U2_TopTracks[2].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -554,7 +554,7 @@ function U2_getTopTrackImg() {
 
 
   // #4 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[3].name}&artist=${U2_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[3].name}&artist=${U2_TopTracks[3].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
@@ -574,7 +574,7 @@ function U2_getTopTrackImg() {
   })
 
   // #5 Artist Image
-  fetch(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[4].name}&artist=${U2_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
+  fetch(`https://ws.audioscrobbler.com/2.0/?method=track.getInfo&track=${U2_TopTracks[4].name}&artist=${U2_TopTracks[4].artist.name}&limit=5&user=${USER2}&api_key=${KEY}&format=json`)
   .then(response => response.json())
   .then(data => {
 
