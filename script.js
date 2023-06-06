@@ -767,7 +767,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   U1_html_header = `
   
   <img src = ${U1_UserInfo.image[2]['#text']} class = U1__photo size = 600px>
-  <h2>${U1_UserInfo.name}<h2>
+  <h2><a href=${U1_UserInfo.url}>${U1_UserInfo.name}</a><h2>
   <p class = U1_ownScrobbles>${U1_UserInfo.playcount} Total Scrobbles</p>
   <p class = U1_ownArtists>${U1_UserInfo.artist_count} Artists</p>
   <p class = U1_ownAlbums>${U1_UserInfo.album_count} Albums</p>
@@ -1039,7 +1039,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   U2_html_header = `
   
   <img src = ${U2_UserInfo.image[2]['#text']} class = U2__photo size = 600px>
-  <h2>${U2_UserInfo.name}<h2>
+  <h2><a href=${U1_UserInfo.url}>${U1_UserInfo.name}</a><h2>
   <p class = U2_ownScrobbles>${U2_UserInfo.playcount} Total Scrobbles</p>
   <p class = U2_ownArtists>${U2_UserInfo.artist_count} Artists</p>
   <p class = U2_ownAlbums>${U2_UserInfo.album_count} Albums</p>
