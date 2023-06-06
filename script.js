@@ -636,23 +636,24 @@ function calculateData(){
 
   totalScrobbleDifference = positiveDifference(U1_UserInfo.playcount, U2_UserInfo.playcount)
 
-  if (U1_UserInfo.playcount > U2_UserInfo.playcount) {
+  if (Number(U1_UserInfo.playcount) > Number(U2_UserInfo.playcount)) {
     totalScrobbleDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_UserInfo.playcount > U1_UserInfo.playcount) {
+  if (Number(U2_UserInfo.playcount) > Number(U1_UserInfo.playcount)) {
     totalScrobbleDifferenceWinner = U2_UserInfo.name;
   }
+
     
   // Top Artist Scrobble Difference
 
   topArtistScrobbleDifference = positiveDifference(U1_TopArtists[0].playcount, U2_TopArtists[0].playcount)
   
-  if (U1_TopArtists[0].playcount > U2_TopArtists[0].playcount) {
+  if (Number(U1_TopArtists[0].playcount) > Number(U2_TopArtists[0].playcount)) {
     topArtistScrobbleDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_TopArtists[0].playcount > U1_TopArtists[0].playcount) {
+  if (Number(U2_TopArtists[0].playcount) > Number(U1_TopArtists[0].playcount)) {
     topArtistScrobbleDifferenceWinner = U2_UserInfo.name;
   }
 
@@ -660,11 +661,11 @@ function calculateData(){
 
   topAlbumScrobbleDifference = positiveDifference(U1_TopAlbums[0].playcount, U2_TopAlbums[0].playcount)
 
-  if (U1_TopAlbums[0].playcount > U2_TopAlbums[0].playcount) {
+  if (Number(U1_TopAlbums[0].playcount) > Number(U2_TopAlbums[0].playcount)) {
     topAlbumScrobbleDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_TopAlbums[0].playcount > U1_TopAlbums[0].playcount) {
+  if (Number(U2_TopAlbums[0].playcount) > Number(U1_TopAlbums[0].playcount)) {
     topAlbumScrobbleDifferenceWinner = U2_UserInfo.name;
   }
 
@@ -672,11 +673,11 @@ function calculateData(){
 
   topTrackScrobbleDifference = positiveDifference(U1_TopTracks[0].playcount, U2_TopTracks[0].playcount)
 
-  if (U1_TopTracks[0].playcount > U2_TopTracks[0].playcount) {
+  if (Number(U1_TopTracks[0].playcount) > Number(U2_TopTracks[0].playcount)) {
     topTrackScrobbleDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_TopTracks[0].playcount > U1_TopTracks[0].playcount) {
+  if (Number(U2_TopTracks[0].playcount) > Number(U1_TopTracks[0].playcount)) {
     topTrackScrobbleDifferenceWinner = U2_UserInfo.name;
   }
 
@@ -684,11 +685,11 @@ function calculateData(){
 
   artistVarietyDifference = positiveDifference(U1_UserInfo.artist_count, U2_UserInfo.artist_count)
 
-  if (U1_UserInfo.artist_count > U2_UserInfo.artist_count) {
+  if (Number(U1_UserInfo.artist_count) > Number(U2_UserInfo.artist_count)) {
     artistVarietyDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_UserInfo.artist_count > U1_UserInfo.artist_count) {
+  if (Number(U2_UserInfo.artist_count) > Number(U1_UserInfo.artist_count)) {
     artistVarietyDifferenceWinner = U2_UserInfo.name;
   }
 
@@ -696,11 +697,11 @@ function calculateData(){
 
   albumVarietyDifference = positiveDifference(U1_UserInfo.album_count, U2_UserInfo.album_count)
 
-  if (U1_UserInfo.album_count > U2_UserInfo.album_count) {
+  if (Number(U1_UserInfo.album_count) > Number(U2_UserInfo.album_count)) {
     albumVarietyDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_UserInfo.album_count > U1_UserInfo.album_count) {
+  if (Number(U2_UserInfo.album_count) > Number(U1_UserInfo.album_count)) {
     albumVarietyDifferenceWinner = U2_UserInfo.name;
   }
 
@@ -708,11 +709,11 @@ function calculateData(){
 
   trackVarietyDifference = positiveDifference(U1_UserInfo.track_count, U2_UserInfo.track_count)
   
-  if (U1_UserInfo.track_count > U2_UserInfo.track_count) {
+  if (Number(U1_UserInfo.track_count) > Number(U2_UserInfo.track_count)) {
     trackVarietyDifferenceWinner = U1_UserInfo.name;
   }
 
-  if (U2_UserInfo.track_count > U1_UserInfo.track_count) {
+  if (Number(U2_UserInfo.track_count) > Number(U1_UserInfo.track_count)) {
     trackVarietyDifferenceWinner = U2_UserInfo.name;
    }
 
@@ -725,6 +726,14 @@ function calculateData(){
   console.log(artistVarietyDifference)
   console.log(albumVarietyDifference)
   console.log(trackVarietyDifference)
+
+  console.log(totalScrobbleDifferenceWinner)
+  console.log(topArtistScrobbleDifferenceWinner)
+  console.log(topAlbumScrobbleDifferenceWinner)
+  console.log(topTrackScrobbleDifferenceWinner)
+  console.log(artistVarietyDifferenceWinner)
+  console.log(albumVarietyDifferenceWinner)
+  console.log(trackVarietyDifferenceWinner)
 
   //// SCROBBLE DIFFERENCES ////
 
