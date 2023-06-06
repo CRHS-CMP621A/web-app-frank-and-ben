@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lastboard</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  </head>
+
+  <body>
+    <nav>
+
+      <img src="img/lastboard.png" class="nav__img" alt="lastboard's full logo" height=32px>
+
+    </nav>
+
+    <main>
+
+      
+      <!-- Username Forms -->
+      <form id = "form" class = "username__form">
+        <div class = "form__collumn">
+        <label class = "username__label">Your Username</label>
+        <input 
+        value = "Superfrancis123"
+        id =  "U1_input"
+        class = "username__input__self"
+        placeholder="@"
+        />
+        </div>
+
+        <div class = "form__collumn">
+          <label class = "username__label">Friend's Username</label>
+          <input 
+          value = "Exticx"
+          id =  "U2_input"
+          class = "username__input__friend"
+          placeholder="@"
+          />
+          </div>
+      
+      <button class = "submitBtn hidesubmit" type="button">Submit</button>
+      <button class = "resultsBtn hideresults" type="button">Show Results</button>
+
+      </form>
+
+      <div class="content hidden">
+        <div class = "info__container">
+          <div class="U1__grid">
+            <div class = "U1__header">
+              
+            </div>
+            <div class = "U1__topArtists">
+
+            </div>
+            <div class = "U1__topAlbums">
+
+            </div>
+            <div class = "U1__topTracks">
+
+            </div>
+          </div>
+          <div class="U2__grid">
+            <div class = "U2__header">
+              
+            </div>
+            <div class = "U2__topArtists">
+
+            </div>
+
+            <div class = "U2__topAlbums">
+
+            </div>
+            <div class = "U2__topTracks">
+
+            </div>
+          </div>
+        </div>
+        <div class = "table__container">
+
+        </div>
+      </div>
+
+
+
+    </main>
+
+    <footer>
+
+
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>

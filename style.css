@@ -1,0 +1,497 @@
+body {
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'Barlow-Bold';
+    src: url(fonts/Barlow-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Barlow-Regular';
+    src: url(fonts/Barlow-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Barlow-Light';
+    src: url(fonts/Barlow-Light.ttf);
+}
+
+/*  NAV */
+nav {
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    height: 50px;
+    
+
+    border: 1px solid black;
+    background-color: black;
+
+    padding: 5px;
+}
+
+.nav__img {
+    align-self: center;
+    color: blue;
+    
+}
+
+/* MAIN */
+
+.username__form {
+    font-family: "Barlow-Bold";
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form__collumn {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.submitBtn,
+.resultsBtn {
+    
+    font-family: "Barlow-Bold";
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    margin: 5px;
+    border: none;
+    width: 400px;
+    justify-self: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+}
+
+.submitBtn {
+    grid-column: 1;
+}
+
+.resultsBtn {
+    grid-column: 2;
+}
+
+.submitBtn:hover,
+.resultsBtn:hover {
+    
+background-color:rgb(189, 189, 189);
+}
+
+.username__input__friend {
+    margin: 5px;
+    background-color:rgb(240,240,240);
+    font-family: "Barlow-Regular";
+    padding: 2px;
+    font-size: 18px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.username__input__self {
+    margin: 5px;
+    background-color:rgb(240,240,240);
+    font-family: "Barlow-Regular";
+    padding: 2px;
+    font-size: 18px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.username__label {
+    font-size: 18px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.hidesubmit {
+    display: none;
+}
+
+.hideresults {
+    display: none;
+}
+
+.info__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* STATS */
+
+.U1__grid {
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: black;
+    border-top: solid 4px rgb(22, 110, 234);
+  }
+  
+.U2__grid {
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: black;
+    border-top: solid 4px rgb(186, 0, 0);
+}
+
+.U1__photo {
+    border: 3px solid black;
+    box-shadow: 0px 6px 8px rgb(75, 75, 75);
+    margin-top: 40px;
+}
+
+.U2__photo {
+    border: 3px solid black;
+    box-shadow: 0px 6px 8px rgb(75, 75, 75);
+    margin-top: 40px;
+}
+
+.U1__header {
+    font-family: "Barlow-Bold";
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.U2__header {
+    font-family: "Barlow-Bold";
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.U1_ownScrobbles,
+.U2_ownScrobbles {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+}
+
+.U1_ownArtists,
+.U2_ownArtists {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.U1_ownAlbums,
+.U2_ownAlbums {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.U1_ownTracks,
+.U2_ownTracks {
+    font-family: "Barlow-Light";
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+/* TOP ARTIST LIST */
+.U1__topArtists {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.U2__topArtists {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.U1__topArtists li,
+.U2__topArtists li {
+    font-family: "Barlow-Regular";
+    display: grid;
+    grid-template-columns: 20px max-content 1fr 1fr;
+    align-items: center;
+    justify-content: left;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-bottom: 1.5px solid rgb(197, 197, 197);
+    width: 600px;
+}
+
+.U1__topArtists li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(22, 110, 234);
+}
+
+.U2__topArtists li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(186, 0, 0);
+}
+
+/* TOP ALBUM LIST */
+
+.U1__topAlbums {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top:-20px;
+    margin-bottom: 20px;
+}
+
+.U2__topAlbums {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.U1__topAlbums li,
+.U2__topAlbums li {
+    font-family: "Barlow-Regular";
+    display: grid;
+    grid-template-columns: 20px max-content 1fr 1fr;
+    align-items: center;
+    justify-content: left;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-bottom: 1.5px solid rgb(197, 197, 197);
+    width: 600px;
+}
+
+.U1__topAlbums li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(22, 110, 234);
+}
+
+.U2__topAlbums li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(186, 0, 0);
+
+}
+
+/* TOP TRACK LIST */
+
+.U1__topTracks {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top:-20px;
+    margin-bottom: 20px;
+}
+
+.U2__topTracks {
+    justify-items: center;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.U1__topTracks li,
+.U2__topTracks li {
+    font-family: "Barlow-Regular";
+    display: grid;
+    grid-template-columns: 20px max-content 1fr 1fr;
+    align-items: center;
+    justify-content: left;
+
+    margin-left: 10px;
+    margin-right: 10px;
+
+    border-bottom: 1.5px solid rgb(197, 197, 197);
+    width: 600px;
+}
+
+.U1__topTracks li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(22, 110, 234);
+}
+
+.U2__topTracks li:hover {
+    background-color: rgb(235, 235, 235);
+    border-left: 4px solid rgb(186, 0, 0);
+
+}
+
+/* LIST SETTINGS */
+
+h1 {
+    font-family: "Barlow-Regular";
+    font-size: 30px;
+    text-align: left;
+    margin-top: 40px;
+    margin-left: -300px;
+    margin-bottom: -35px;
+}
+
+.listPosition {
+    font-family: "Barlow-Bold";
+    margin-left: 15px;
+    grid-column: 1;
+}
+
+.listScrobbles {
+    margin-right: 10px;
+    grid-column: 4;
+    justify-self: right;
+}
+
+.listName {
+    font-family: "Barlow-Bold";
+    grid-column: 3;
+    width: 375px;
+}
+
+.listImage {
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 2px;
+    grid-column: 2;
+}
+
+/* TOP IN LISTS */
+.listNumberOne {
+    font-family: "Barlow-Regular";
+    display: grid;
+    grid-template-columns: 20px max-content 1fr;
+    align-items: center;
+    justify-content: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 600px;
+}
+
+.listOnePosition {
+    font-family: "Barlow-Bold";
+    margin-left: 8px;
+    grid-column: 1;
+}
+
+.listOneStats {
+    grid-column: 3;
+    margin-left: 25px;
+    width: 340px;
+}
+
+.listOneImage {
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    grid-column: 2;
+}
+
+.oneName {
+    font-family: "Barlow-Bold";
+    font-size: 36px;
+    margin-bottom: -12px;
+    margin-top: 2px;
+}
+
+.oneScrobbles {
+    font-family: "Barlow-Regular";
+    font-size: 20px;
+}
+
+/* TABLE */
+
+h2 {
+    font-family: "Barlow-Regular";
+    font-size: 36px;
+    margin-bottom: -15px;
+}
+
+.table__container {
+    display: grid;
+    justify-items: center;
+
+}
+
+.comparisonTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: "Barlow-Regular";
+    min-width: 1000px;
+    box-shadow: 0px 6px 8px rgb(75, 75, 75);
+    border: 3px solid #000000;
+}
+
+.U1__tableHead {
+    border-bottom: 2px solid rgb(22, 110, 234);
+    border-left: 2px solid black;
+}
+
+.U2__tableHead {
+    border-bottom: 2px solid rgb(186, 0, 0);
+}
+
+.winner__tableHead {
+    border-bottom: 2px solid rgb(24, 224, 74);
+}
+
+.corner__tableHead {
+    background-color: rgb(196, 196, 196);
+    width: 200px;
+    border-left: 2px solid black;
+}
+
+.statName {
+    background-color: rgb(243,243,243);
+    font-family: "Barlow-Bold";
+    font-size: 18px;
+    border-right: 2px solid black;
+}
+
+.comparisonTable thead tr {
+    background-color: rgb(243,243,243);
+    color: #000000;
+    text-align: left;
+    font-family: "Barlow-Bold";
+    font-size: 18px;
+}
+
+th,
+td {
+    padding: 12px 15px;
+}
+
+td:hover {
+    background-color: rgb(243,243,243);
+}
+
+.comparisonTable tbody tr {
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+.green-text {
+  color: rgb(0, 202, 0);
+}
+
+.red-text {
+  color: red;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
