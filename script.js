@@ -767,7 +767,7 @@ document.querySelector(".resultsBtn").addEventListener("click", function(e) {
   U1_html_header = `
   
   <img src = ${U1_UserInfo.image[2]['#text']} class = U1__photo size = 600px>
-  <h2><a href=${U1_UserInfo.url} target = "_blank">${U1_UserInfo.name}</a><h2>
+  <h2><a target = "_blank" href=${U1_UserInfo.url} >${U1_UserInfo.name}</a><h2>
   <p class = U1_ownScrobbles>${U1_UserInfo.playcount} Total Scrobbles</p>
   <p class = U1_ownArtists>${U1_UserInfo.artist_count} Artists</p>
   <p class = U1_ownAlbums>${U1_UserInfo.album_count} Albums</p>
